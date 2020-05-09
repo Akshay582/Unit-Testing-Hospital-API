@@ -4,14 +4,17 @@
   "description": "For unit testing in the hospital api and improving on the api.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon index.js"
   },
   "author": "Akshay Mittal",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^7.1.2",
     "mongoose": "^5.9.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"

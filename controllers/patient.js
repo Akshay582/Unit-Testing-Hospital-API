@@ -6,10 +6,11 @@ module.exports.create = function(req, res) {
         if(!patient){
             Patient.create(req.body, function(err, patient){
                 if(err){console.log('Error in patient controller2:', err); return ;}
+                return res.json(200, {
+                    message: "Patient created successfully.",
+                    patient
+                })
             });
-            return res.json(200, {
-                message: "Patient created successfully."
-            })
         }else{
             return res.json(409, {
                 message: "The patient already exists doctor. Please go ahead and make the report using the :[patient_ID]/create_report route."
