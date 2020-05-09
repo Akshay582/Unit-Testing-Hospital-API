@@ -1,22 +1,31 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const jwt = require('jsonwebtoken');
+
 const server = require('../index');
+const Doctor = require('../models/doctor');
 
 //Assertion style 
 chai.should();
 
 chai.use(chaiHttp);
 
+/* **************
+*   GENERATE A NEW TOKEN FROM THE DOCTOR LOGIN ROUTE IN THE API
+*/
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTliMWFhNWQ0NmE4YTNiYzhjN2E1MmIiLCJ1c2VybmFtZSI6InNoYWgiLCJwYXNzd29yZCI6IjEyMzQiLCJfX3YiOjAsImlhdCI6MTU4OTAxNzUxNiwiZXhwIjoxNTg5MDIzNTE2fQ.2uyQplX62v2Rro-EuHroezlIGItLLJQifp4FW9q3ULk';
+
 describe('Patient routes of the Hospital API', () => {
     describe("POST /patients/register", () => {
         it("Returns the newly created patient", done => {
             const patient = {
-                phone: 2222222234,      // change every time as it is unique
+                phone: 2222222236,      // change every time as it is unique
                 name: 'Krysten'
             }
             chai.request(server)
                 .post("/patients/register")
                 .set('content-type', 'application/x-www-form-urlencoded')
+                .set({'Authorization':  'Bearer ' + token})
                 .send(patient)
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -38,6 +47,7 @@ describe('Patient routes of the Hospital API', () => {
             chai.request(server)
                 .post(`/patients/${reportQuery.id}/create_report`)
                 .set('content-type', 'application/x-www-form-urlencoded')
+                .set({'Authorization':  'Bearer ' + token})
                 .send(reportBody)
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -56,6 +66,7 @@ describe('Patient routes of the Hospital API', () => {
             }
             chai.request(server)
                 .get(`/patients/${reportQuery.id}/all_reports`)
+                .set({'Authorization':  'Bearer ' + token})
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.reports.should.be.a('array');
