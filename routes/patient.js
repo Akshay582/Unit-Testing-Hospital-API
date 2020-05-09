@@ -8,6 +8,6 @@ const reportController = require('../controllers/report');
 router.post('/register', patientController.create);
 
 router.post('/:id/create_report', reportController.create);
-router.post('/:id/all_reports', reportController.allReports);
+router.get('/:id/all_reports', reportController.allReports);
 
 module.exports = router;

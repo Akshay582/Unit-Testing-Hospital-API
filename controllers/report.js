@@ -10,13 +10,14 @@ module.exports.create = async function(req, res) {
                 status: req.body.status,
                 doctor: req.body.doctor,
                 patient: req.params.id
-            }, function(err, c){
+            }, function(err, report){
                 // handle error
                 if(err){console.log('error in creating a report'); return;}
+                return res.json(200, {
+                    message: "Report created successfully.",
+                    report
+                })
             });
-            return res.json(200, {
-                message: "Report created successfully."
-            })
         }else{
             return res.json(404, {
                 message: "Patient doesn't exist. Please register the patient with suitable credentials."
