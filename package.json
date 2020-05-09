@@ -1,0 +1,19 @@
+{
+  "name": "unit-testing-hospital-api",
+  "version": "1.0.0",
+  "description": "For unit testing in the hospital api and improving on the api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Akshay Mittal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.6",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  }
+}
