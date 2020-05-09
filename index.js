@@ -9,7 +9,7 @@ const passportJwt = require('./config/passport-jwt-strategy');
 app.use(express.urlencoded());
 
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 app.use('/', require('./routes'));
 
