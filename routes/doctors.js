@@ -3,7 +3,7 @@ const router = express.Router();
 
 const doctorController = require('../controllers/doctor');
 
-router.post('/create', doctorController.create);
+router.post('/register', doctorController.create);
 router.post('/login', doctorController.createSession);
 
 module.exports = router;
