@@ -42,7 +42,7 @@ Hello,
   npm start
   ```
 
-- All the **protected** routes require authentication using **Json Web Tokens** which can be generated using the `doctors/login` which requires the doctor to be registered and requires `/doctors/register` relative path.
+- All the **protected** routes require authentication using **Json Web Tokens** which can be generated using the `/doctors/login` which requires the doctor to be registered and requires `/doctors/register` relative path.
 
 ## Testing
 
