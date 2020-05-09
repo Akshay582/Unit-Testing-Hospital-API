@@ -11,7 +11,7 @@ app.use(express.urlencoded());
 app.use(passport.initialize());
 // app.use(passport.session());
 
-app.use('/', require('./routes'));
+app.use('/', require('./routes/api'));
 
 app.listen(port, function(err){
     if(err)

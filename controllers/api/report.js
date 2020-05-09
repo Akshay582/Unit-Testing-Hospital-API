@@ -1,5 +1,5 @@
-const PatientsReport = require('../models/patientReport');
-const Patient = require('../models/patient');
+const PatientsReport = require('../../models/patientReport');
+const Patient = require('../../models/patient');
 
 const mongoose = require('mongoose');
 

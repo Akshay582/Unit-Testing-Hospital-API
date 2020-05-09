@@ -1,4 +1,4 @@
-const Patient = require('../models/patient');
+const Patient = require('../../models/patient');
 
 module.exports.create = function(req, res) {
     Patient.findOne({phone: req.body.phone}, function(err, patient){
